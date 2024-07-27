@@ -1,4 +1,4 @@
-export default function Introduction() {
+export default function Introduction({name, role}) {
   return (
     <div className="h-[400px] flex items-center">
       {/* Greetings */}
@@ -7,7 +7,7 @@ export default function Introduction() {
           Hi, there!
         </span>
         <span className="font-semibold text-white text-4xl block">
-          Prudhvi Srinivas, backend developer. We are a
+          {name}, {role}. We are a
         </span>
         <span className="font-semibold text-white text-4xl block">
           network of experienced engineers.
