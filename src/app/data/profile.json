@@ -1,0 +1,41 @@
+{
+    "name": "Yashwanth Reddy ",
+    "role": "Backend Developer",
+    "totalExperienceInYears": "1.1",
+    "experiences": [
+        {
+            "name": "Software Engineer",
+            "duration": "Aug 2023 - Current",
+            "timeLineDuration": "2023-24",
+            "location": "Kondapur, Hyderabad",
+            "description": "Backend Developer",
+            "details": [
+                "Currently working on building an event streaming data layer and analytics engine for a client that includes high throughput data pipeline (Kafka, Golang Microservices and Spark Jobs) and OLAP cube (Click-house with Star Schema) for efficient analytic queries. Currently working on building an event streaming data layer and analytics engine for a client that includes high throughput data pipeline (Kafka, Golang Microservices and Spark Jobs) and OLAP cube (Click-house with Star Schema) for efficient analytic queries",
+                "Proficient in Golang and Scala. Developed production-ready microservices in Golang and actively participated in maintaining and enhancing existing Scala services through bug fixes and API features development"
+            ]
+        },
+        {
+            "name": "Software Engineer Intern",
+            "duration": "Jan 2023 - Aug 2023",
+            "timeLineDuration": "2023-23",
+            "location": "Kondapur, Hyderabad",
+            "description": "Software Engineer Intern",
+            "details": [
+                "Develop and maintain APIs: Create and maintain RESTful APIs for web and mobile applications using technologies such as Node.js, Express, and MongoDB.",
+                "Code reviews and testing: Participate in code reviews and write unit tests to ensure code quality and maintainability.",
+                "Performance optimization: Optimize backend code for performance and scalability, including caching, load balancing, and other techniques."
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "name": "Easy Deploy Scheduler",
+            "duration": "Jan 2023 - Feb 2023",
+            "location": "San Francisco, CA",
+            "details": [
+                "An easy deploy scheduler that allows you to schedule your deployments with a simple and easy-to-use interface. It supports multiple deployment strategies, including rolling updates, blue-green deployments, and canary releases.",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor."
+            ]
+        }
+    ]
+}

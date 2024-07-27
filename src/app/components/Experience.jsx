@@ -1,7 +1,18 @@
 import { FaCheck } from "react-icons/fa6";
 import TimeLineComponent from "./TimelineComponent";
 
-export default function Experience() {
+export default function Experience({totalExperience, experiences}) {
+
+  function GetTimelineData(experiences) {
+    return experiences.map((experience, idx) => {
+      return {
+        text: experience.name,
+        description: experience.description,
+        year: experience.timeLineDuration
+      }
+    });
+  }
+
   return (
     <div className="flex w-full h-[50vh] gap-5">
       {/* Experience Representation*/}
@@ -12,13 +23,13 @@ export default function Experience() {
             Experience
           </span>
           <span className="block text-white px-3 py-2 bg-[#12825F] rounded-full">
-            1.5 Years
+            {totalExperience} Years
           </span>
         </div>
 
         {/* Timeline */}
         <div>
-          <TimeLineComponent />
+          <TimeLineComponent data={GetTimelineData(experiences)} totalExperience={totalExperience}/>
         </div>
       </div>
 
@@ -27,45 +38,32 @@ export default function Experience() {
         <span className="block text-white text-2xl font-semibold">
           Professional Experience
         </span>
-        <div className="flex flex-col gap-4">
+        {experiences.map((each, idx) => (
+          <div>
+          <div className="flex flex-col gap-2 pb-2">
           <div className="flex gap-3 items-center">
             <span className="text-white block text-base font-medium">
-              Software Engineer
+              {each.name}
             </span>
             <span className="text-white text-sm px-3 py-2 bg-[#212125] rounded-full">
-              Jan 2023 - Current
+              {each.duration}
             </span>
           </div>
-          <span className="text-xs font-normal text-[#C3C3C3]/78">
-            Kondapur, Hyderabad
-          </span>
+          <span className="font-normal text-xs py-2 text-[#C3C3C3]">
+            {each.location}
+          </span> 
         </div>
-        <div className="flex flex-col gap-4">
-          <div className="flex gap-2">
-            <FaCheck className="text-[#12825F] size-5 shrink-0" />
-            <span className="text-xs font-normal text-[#C3C3C3]">
-              Currently working on building an event streaming data layer and
-              analytics engine for a client that includes high throughput data
-              pipeline (Kafka, Golang Microservices and Spark Jobs) and OLAP
-              cube (Click-house with Star Schema) for efficient analytic
-              queries. Currently working on building an event streaming data
-              layer and analytics engine for a client that includes high
-              throughput data pipeline (Kafka, Golang Microservices and Spark
-              Jobs) and OLAP cube (Click-house with Star Schema) for efficient
-              analytic queries.
-            </span>
-          </div>
-
-          <div className="flex gap-2">
-            <FaCheck className="text-[#12825F] size-5 shrink-0" />
-            <span className="text-xs font-normal text-[#C3C3C3]">
-              Proficient in Golang and Scala. Developed production-ready
-              microservices in Golang and actively participated in maintaining
-              and enhancing existing Scala services through bug fixes and API
-              features development.
-            </span>
-          </div>
+        <div className="flex flex-col gap-3">
+          {each.details.map((detail, idx) => (
+              <div className="flex gap-2">
+              <FaCheck className="text-[#12825F] size-5 shrink-0" />
+              <span className="text-xs font-normal text-[#C3C3C3]">
+                {detail}
+              </span>
+            </div>
+          ))}
         </div>
+        </div>))}
       </div>
     </div>
   );

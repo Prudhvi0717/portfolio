@@ -1,35 +1,9 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-export default function TimeLineComponent() {
-  const data = [
-    {
-      text: "dslkjldsjskj",
-      description: "kdsljasliwoenflawendalwfinfoe",
-      year: "2113-15",
-    },
-    {
-      text: "dslkjldsjskj",
-      description: "kdsljasliwoenflawendalwfinfoe",
-      year: "2113-15",
-    },
-    {
-      text: "dslkjldsjskj",
-      description: "kdsljasliwoenflawendalwfinfoe",
-      year: "2113-15",
-    },
-    {
-      text: "dslkjldsjskj",
-      description: "kdsljasliwoenflawendalwfinfoe",
-      year: "2113-15",
-    },
-    {
-      text: "dslkjldsjskj",
-      description: "kdsljasliwoenflawendalwfinfoe",
-      year: "2113-15",
-    },
-  ];
-
+export default function TimeLineComponent({data, totalExperience}) {
+  
   return (
+    // <div className="flex flex-col overflow-y-auto max-h-[35vh]">
     <ScrollArea className={"h-[35vh]"}>
       <div className="flex flex-col">
         {data.map((d, idx) => (
