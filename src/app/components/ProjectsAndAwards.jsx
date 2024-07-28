@@ -1,9 +1,9 @@
 import { FaCheck } from "react-icons/fa6";
 import TimeLineComponent from "./TimelineComponent";
+import data from "../data/profile.json";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
-
-export default function ProjectsAndAwards({projects}) {
-  // console.log(projects);
+export default function ProjectsAndAwards() {
   return (
     <div className="flex w-full h-[50vh] gap-5">
       {/* Projects*/}
@@ -11,35 +11,35 @@ export default function ProjectsAndAwards({projects}) {
         <span className="block text-white text-2xl font-semibold">
           Projects
         </span>
-        {projects.map((each, idx) => (
-          <div>
-            <div className="flex flex-col gap-4">
-              <div className="flex gap-3 items-center">
-                <span className="text-white block text-base font-medium">
-                  {each.name}
-                </span>
-                <span className="text-white text-sm px-3 py-2 bg-[#212125] rounded-full">
-                  {each.duration}
-                </span>
-              </div>
-              <span className="font-normal text-xs py-2 text-[#C3C3C3]">
-                {each.location}
-            </span>
-            <div className="flex flex-col gap-4">
-              {each.details.map((detail, idx) => (
-                <div className="flex gap-2">
-                  <FaCheck className="text-[#12825F] size-5 shrink-0" />
-                  <span className="text-xs font-normal text-[#C3C3C3]">
-                    {detail}
+        <ScrollArea className="h-[40vh]">
+          <div className="flex flex-col gap-12">
+            {data.projects.map((each, idx) => (
+              <div className="flex flex-col gap-4">
+                <div className="flex gap-3 items-center">
+                  <span className="text-white block text-base font-medium">
+                    {each.name}
+                  </span>
+                  <span className="text-white text-sm px-3 py-2 bg-[#212125] rounded-full">
+                    {each.duration}
                   </span>
                 </div>
-              ))}
-            </div>
-        </div>
-            </div>
+                <span className="font-normal text-xs py-2 text-[#C3C3C3]">
+                  {each.location}
+                </span>
+                <div className="flex flex-col gap-4">
+                  {each.details.map((detail, idx) => (
+                    <div className="flex gap-2">
+                      <FaCheck className="text-[#12825F] size-5 shrink-0" />
+                      <span className="text-xs font-normal text-[#C3C3C3]">
+                        {detail}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             ))}
-
-
+          </div>
+        </ScrollArea>
       </div>
 
       {/* Awards*/}
@@ -50,13 +50,13 @@ export default function ProjectsAndAwards({projects}) {
             Awards
           </span>
           <span className="block text-white px-3 py-2 bg-[#12825F] rounded-full">
-            1.5 Years
+            {data.totalExperienceInYears} Years
           </span>
         </div>
 
         {/* Timeline */}
         <div>
-          <TimeLineComponent data={[]} totalExperience={"1.5"}/>
+          <TimeLineComponent data={data.experiences} />
         </div>
       </div>
     </div>

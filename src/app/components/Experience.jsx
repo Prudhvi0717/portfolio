@@ -1,18 +1,9 @@
 import { FaCheck } from "react-icons/fa6";
 import TimeLineComponent from "./TimelineComponent";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import data from ".././data/profile.json";
 
-export default function Experience({totalExperience, experiences}) {
-
-  function GetTimelineData(experiences) {
-    return experiences.map((experience, idx) => {
-      return {
-        text: experience.name,
-        description: experience.description,
-        year: experience.timeLineDuration
-      }
-    });
-  }
-
+export default function Experience() {
   return (
     <div className="flex w-full h-[50vh] gap-5">
       {/* Experience Representation*/}
@@ -23,13 +14,13 @@ export default function Experience({totalExperience, experiences}) {
             Experience
           </span>
           <span className="block text-white px-3 py-2 bg-[#12825F] rounded-full">
-            {totalExperience} Years
+            {data.timeLineDuration} Years
           </span>
         </div>
 
         {/* Timeline */}
         <div>
-          <TimeLineComponent data={GetTimelineData(experiences)} totalExperience={totalExperience}/>
+          <TimeLineComponent data={data.experiences} />
         </div>
       </div>
 
@@ -38,32 +29,37 @@ export default function Experience({totalExperience, experiences}) {
         <span className="block text-white text-2xl font-semibold">
           Professional Experience
         </span>
-        {experiences.map((each, idx) => (
-          <div>
-          <div className="flex flex-col gap-2 pb-2">
-          <div className="flex gap-3 items-center">
-            <span className="text-white block text-base font-medium">
-              {each.name}
-            </span>
-            <span className="text-white text-sm px-3 py-2 bg-[#212125] rounded-full">
-              {each.duration}
-            </span>
+        <ScrollArea className="max-h-[35vh]">
+          <div className="flex flex-col gap-12">
+            {data.experiences.map((each, idx) => (
+              <div>
+                <div className="flex flex-col gap-2 pb-2">
+                  <div className="flex gap-3 items-center">
+                    <span className="text-white block text-base font-medium">
+                      {each.name}
+                    </span>
+                    <span className="text-white text-sm px-3 py-2 bg-[#212125] rounded-full">
+                      {each.duration}
+                    </span>
+                  </div>
+                  <span className="font-normal text-xs py-2 text-[#C3C3C3]">
+                    {each.location}
+                  </span>
+                </div>
+                <div className="flex flex-col gap-3">
+                  {each.details.map((detail, idx) => (
+                    <div className="flex gap-2">
+                      <FaCheck className="text-[#12825F] size-5 shrink-0" />
+                      <span className="text-xs font-normal text-[#C3C3C3]">
+                        {detail}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
-          <span className="font-normal text-xs py-2 text-[#C3C3C3]">
-            {each.location}
-          </span> 
-        </div>
-        <div className="flex flex-col gap-3">
-          {each.details.map((detail, idx) => (
-              <div className="flex gap-2">
-              <FaCheck className="text-[#12825F] size-5 shrink-0" />
-              <span className="text-xs font-normal text-[#C3C3C3]">
-                {detail}
-              </span>
-            </div>
-          ))}
-        </div>
-        </div>))}
+        </ScrollArea>
       </div>
     </div>
   );
